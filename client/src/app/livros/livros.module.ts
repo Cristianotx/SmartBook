@@ -10,13 +10,20 @@ import { LivrosConsultaComponent } from './livros-consulta/livros-consulta.compo
 import { LivrosCadastroComponent } from './livros-cadastro/livros-cadastro.component';
 import { LivrosDetalheComponent } from './livros-detalhe/livros-detalhe.component';
 
+import { LivroService } from './shared/livro.service';
+
 @NgModule({
-  declarations: [LivrosConsultaComponent, LivrosCadastroComponent, LivrosDetalheComponent],
+  declarations: [
+    LivrosConsultaComponent,
+    LivrosCadastroComponent,
+    LivrosDetalheComponent
+  ],
   imports: [
     CommonModule,
     SharedModule,
     LivrosRoutingModule,
     ReactiveFormsModule
-  ]
+  ],
+  providers: [LivroService]
 })
 export class LivrosModule {}

@@ -23,4 +23,32 @@ export class LivrosCadastroComponent extends LivrosBaseComponent {
       urlCapa: [null, Validators.required]
     });
   }
+
+  init() {
+    this.activatedRoute.queryParams.subscribe((params) => {
+      if (params['id']) {
+        this.aggregateId = params['id'];
+        this.obterLivroPorId();
+      }
+    });
+  }
+
+  obterLivroPorId() {
+    this.livroService
+      .obterPorId(this.aggregateId)
+      .subscribe(
+        (response) => this.patchValue(response),
+        (error) => console.log(error)
+      );
+  }
+
+  patchValue(model: any) {
+    if (!model) {
+      return;
+    }
+
+    this.form.patchValue({
+      model
+    });
+  }
 }

@@ -6,34 +6,34 @@ import {
   Output,
   EventEmitter
 } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
-export class LivrosBaseComponent implements OnInit, OnChanges {
-  @Input()
-  params;
+import { LivroService } from './livro.service';
 
-  @Output()
-  changed = new EventEmitter();
+export class LivrosBaseComponent implements OnInit, OnChanges {
+  aggregateId: string;
 
   form: FormGroup;
   submitted = false;
 
   listaGeneros = [];
 
-  constructor(public formBuilder: FormBuilder) {
+  constructor(
+    public formBuilder: FormBuilder,
+    public activatedRoute: ActivatedRoute,
+    public livroService: LivroService
+  ) {
     this.load();
   }
 
-  ngOnInit() {}
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.params && changes.params.currentValue) {
-      this.init(changes.params.currentValue);
-    }
+  ngOnInit() {
+    this.init();
   }
 
+  ngOnChanges(changes: SimpleChanges): void {}
+
   submit() {
-    debugger;
     if (!this.form.valid) {
       this.submitted = true;
       return;
@@ -43,6 +43,6 @@ export class LivrosBaseComponent implements OnInit, OnChanges {
   }
 
   load() {}
-  init(params) {}
+  init() {}
   onSubmit() {}
 }

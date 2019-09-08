@@ -7,6 +7,8 @@ import { SharedModule } from '../shared/shared.module';
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 
+import { LivroService } from '../livros/shared/livro.service';
+
 
 @NgModule({
   declarations: [HomeComponent],
@@ -15,6 +17,9 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
     SharedModule,
     HomeRoutingModule,
     CarouselModule.forRoot()
+  ],
+  providers: [
+    LivroService
   ]
 })
 export class HomeModule { }

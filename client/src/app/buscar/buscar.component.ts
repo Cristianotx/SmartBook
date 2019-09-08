@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LivroService } from '../livros/shared/livro.service';
 
 @Component({
   selector: 'app-buscar',
@@ -7,9 +8,16 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./buscar.component.scss']
 })
 export class BuscarComponent implements OnInit {
-  texto;
+  texto: string;
+  livros: any[];
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  pagina = 1;
+  itensPorPagina = 6;
+
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private livroService: LivroService
+  ) {}
 
   ngOnInit() {
     this.activatedRoute.queryParams.subscribe((params) => {
@@ -17,5 +25,14 @@ export class BuscarComponent implements OnInit {
         this.texto = params['texto'];
       }
     });
+  }
+
+  obterPorTexto(categoriaId: number) {
+    this.livroService
+      .obterPorPesquisa(this.pagina, this.itensPorPagina, this.texto)
+      .subscribe(
+        (response) => (this.livros = response),
+        (error) => console.log(error)
+      );
   }
 }

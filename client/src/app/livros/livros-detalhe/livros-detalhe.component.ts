@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+
+import { LivroService } from './../shared/livro.service';
 
 @Component({
   selector: 'app-livros-detalhe',
@@ -7,6 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./livros-detalhe.component.scss']
 })
 export class LivrosDetalheComponent implements OnInit {
+  aggregateId: string;
+
   livro = {
     id: 1,
     titulo: 'Delicious Place',
@@ -49,9 +53,26 @@ export class LivrosDetalheComponent implements OnInit {
     ]
   };
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private livroService: LivroService
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.activatedRoute.queryParams.subscribe((params) => {
+      if (params['id']) {
+        this.aggregateId = params['id'];
+        this.obterLivro();
+      }
+    });
+  }
+
+  obterLivro() {
+    this.livroService
+      .obterPorId(this.aggregateId)
+      .subscribe((response) => response, (error) => console.log(error));
+  }
 
   irParaCategoria = (categoriaId: number) =>
     this.router.navigate(['/categorias', categoriaId, 'livros']);

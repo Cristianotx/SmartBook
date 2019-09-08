@@ -5,6 +5,7 @@ import { CategoriasRoutingModule } from './categorias-routing.module';
 import { CategoriasConsultaComponent } from './categorias-consulta/categorias-consulta.component';
 import { SharedModule } from '../shared/shared.module';
 
+import { LivroService } from './../livros/shared/livro.service';
 
 @NgModule({
   declarations: [CategoriasConsultaComponent],
@@ -12,6 +13,7 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     CategoriasRoutingModule,
     SharedModule
-  ]
+  ],
+  providers: [LivroService]
 })
 export class CategoriasModule { }

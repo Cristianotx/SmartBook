@@ -1,11 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
+import { LivroService } from './../shared/livro.service';
+
 @Component({
   selector: 'app-livros-consulta',
   templateUrl: './livros-consulta.component.html',
   styleUrls: ['./livros-consulta.component.scss']
 })
 export class LivrosConsultaComponent implements OnInit {
+  pagina = 1;
+  itensPorPagina = 6;
+
   livros = [
     {
       id: 1,
@@ -80,7 +85,18 @@ export class LivrosConsultaComponent implements OnInit {
       preço: 'R$ 23,00'
     }
   ];
-  constructor() {}
+  constructor(private livroService: LivroService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.obterLivros();
+  }
+
+  obterLivros() {
+    this.livroService
+      .obterTodos(this.pagina, this.itensPorPagina)
+      .subscribe(
+        (response) => (this.livros = response),
+        (error) => console.log(error)
+      );
+  }
 }
