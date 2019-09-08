@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="livro" *ngIf="livro">
+    <div class="capa">
+      <img src="{{ livro.capa }}" />
+    </div>
+    <div class="detalhes">
+      <div class="header">
+        <span class="titulo">{{ livro.titulo }}</span>
+        <span class="data-publicacao">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+          {{ livro.dataPublicacao }}
+        </span>
+      </div>
+
+      <div class="descricao">
+        {{ livro.descricao }}
+      </div>
+
+      <div class="sinopse">
+        {{ livro.sinopse }}
+      </div>
+
+      <div class="paginas">
+        Páginas: <span>{{ livro.paginas }}</span>
+      </div>
+
+      <div class="autor">
+        Autor: <span>{{ livro.autor }}</span>
+      </div>
+
+      <div class="editora">
+        Editor: <span>{{ livro.editora }}</span>
+      </div>
+
+      <div class="categorias">
+        <h5>Categorias:</h5>
+        <span
+          *ngFor="let categoria of livro.categorias"
+          (click)="(categoria.id)"
+          >{{ categoria.nome }}</span
+        >
+      </div>
+
+      <div class="links">
+        <h5>Links de compra:</h5>
+        <a
+          *ngFor="let link of livro.links"
+          href="{{ link.link }}"
+          target="_blank"
+          >{{ link.titulo }}</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

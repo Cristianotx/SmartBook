@@ -16,6 +16,5 @@ export class LivrosCardComponent implements OnInit {
 
   editar = (id: number) => this.router.navigate(['/livros', id, 'editar']);
 
-  visualizar = (id: number) =>
-    this.router.navigate(['/livos', id, 'visualizar']);
+  visualizar = (id: number) => this.router.navigate(['/livros', id, 'detalhe']);
 }
