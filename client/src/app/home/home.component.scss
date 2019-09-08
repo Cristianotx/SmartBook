@@ -1,0 +1,91 @@
+.categorias {
+  & {
+    background-color: #e6e6e6 !important;
+    margin: 15px 0;
+    padding: 15px 0;
+  }
+  .container {
+    & {
+      display: flex;
+      justify-content: space-between;
+    }
+    .categoria {
+      & {
+        display: flex;
+      }
+
+      &:hover .categoria-icone {
+        background: #f86d72 !important;
+        color: #fff;
+      }
+      &:hover .categoria-titulo a {
+        color: #f86d72 !important;
+      }
+
+      .categoria-icone {
+        margin-right: 20px;
+        font-size: 25px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        background: #fff;
+        text-align: center;
+        line-height: 60px;
+        box-shadow: 0 0 4px 0 rgba(43, 43, 43, 0.65);
+      }
+
+      .categoria-titulo {
+        & {
+          font-size: 22px;
+          font-weight: 700;
+          font-family: Merriweather, serif;
+          margin-bottom: 10px;
+        }
+        a {
+          & {
+            color: #2b2b2b;
+          }
+          :focus,
+          :hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+.novos-livros {
+  & {
+    display: flex;
+  }
+  .container {
+    & {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .novos-livros-titulo {
+      & {
+        font-size: 32px;
+        color: #2b2b2b;
+        position: relative;
+        padding-bottom: 12px;
+        margin: 0;
+      }
+      &::before {
+        bottom: 0;
+        left: 0;
+        width: 70px;
+        height: 2px;
+        background: #f86d72;
+        content: "";
+        position: absolute;
+      }
+    }
+  }
+}

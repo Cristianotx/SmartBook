@@ -1,1 +1,72 @@
+<carousel [itemsPerSlide]="itemsPerSlide" [singleSlideOffset]="false" [interval]="false" [indicatorsByChunk]="true">
+  <slide *ngFor="let slide of slides; let index=index">
+    <img [src]="slide.image" alt="image slide" style="display: block; width: 100%;">
+    <div class="carousel-caption">
+      <h4>Slide {{index}}</h4>
+    </div>
+  </slide>
+</carousel>
 
+<div class="categorias">
+  <div class="container">
+
+    <div class="categoria">
+      <div class="categoria-icone"> <i class="fa fa-book"></i></div>.
+      <div class="content">
+        <div class="categoria-titulo"> <a href="">Clássico</a>
+        </div>
+        <div class="cateogira-total-livros"> 7<span> Books</span></div>
+      </div>
+    </div>
+
+    <div class="categoria">
+      <div class="categoria-icone"> <i class="fa fa-newspaper-o"></i></div>.
+      <div class="content">
+        <div class="categoria-titulo"> <a href="">Drama</a>
+        </div>
+        <div class="cateogira-total-livros"> 2<span> Livros</span></div>
+      </div>
+    </div>
+
+    <div class="categoria">
+      <div class="categoria-icone"> <i class="fa fa-cube"></i></div>.
+      <div class="content">
+        <div class="categoria-titulo"> <a href="">Para Crianças</a>
+        </div>
+        <div class="cateogira-total-livros"> 3<span> Livros</span></div>
+      </div>
+    </div>
+
+    <div class="categoria">
+      <div class="categoria-icone"> <i class="fa fa-eercast"></i></div>.
+      <div class="content">
+        <div class="categoria-titulo"> <a href="">Terror</a>
+        </div>
+        <div class="cateogira-total-livros"> 6<span> Livros</span></div>
+      </div>
+    </div>
+
+    <div class="categoria">
+      <div class="categoria-icone"> <i class="fa fa-heart-o"></i></div>.
+      <div class="content">
+        <div class="categoria-titulo"> <a href="">Romance</a>
+        </div>
+        <div class="cateogira-total-livros"> 7<span> Livros</span></div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<div class="novos-livros">
+  <div class="container">
+    <div class="novos-livros-titulo">
+      Novos Livros
+    </div>
+    <app-livros [data]="livros">
+
+    </app-livros>
+
+  </div>
+</div>
