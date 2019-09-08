@@ -66,7 +66,7 @@ export class HomeComponent implements OnInit {
       autor: 'Sabela Hupter',
       preço: 'R$ 23,00'
     }
-  ]
+  ];
 
   constructor(
     private router: Router
