@@ -10,16 +10,11 @@ export class LivrosCardComponent implements OnInit {
   @Input()
   livro;
 
-  constructor(
-    private router: Router
-  ) { }
+  constructor(private router: Router) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-
-  editar = (id: number) =>
-    this.router.navigate(['/livros', id, 'editar']);
+  editar = (id: number) => this.router.navigate(['/livros', id, 'editar']);
 
   visualizar = (id: number) =>
     this.router.navigate(['/livos', id, 'visualizar']);

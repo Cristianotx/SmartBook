@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: 'livros',
     loadChildren: () => import('./livros/livros.module').then(m => m.LivrosModule)
+  },
+  {
+    path: 'buscar',
+    loadChildren: () => import('./buscar/buscar.module').then(m => m.BuscarModule)
   }
 ];
 

@@ -1,1 +1,24 @@
-<header class="o-header">Header</header>
+<header>
+  <div class="header-top">
+    <div class="header-container" [formGroup]="form">
+      <img src="../assets/logos/logo-smartbook.jpg" />
+      <div class="search">
+        <input
+          type="text"
+          class="text-search"
+          placeholder="Porcurar livro"
+          aria-label="Search"
+          formControlName="texto"
+        />
+        <button class="btn-search" (click)="buscarLivro()">Search</button>
+      </div>
+    </div>
+  </div>
+  <nav class="nav">
+    <div class="container">
+      <a routerLink="/" routerLinkActive="active">Home</a>
+      <a routerLink="/livros" routerLinkActive="active">Livros</a>
+      <a routerLink="/categorias" routerLinkActive="active">Categorias</a>
+    </div>
+  </nav>
+</header>
