@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -10,15 +9,22 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule)
   },
   {
     path: 'livros',
-    loadChildren: () => import('./livros/livros.module').then(m => m.LivrosModule)
+    loadChildren: () =>
+      import('./livros/livros.module').then((m) => m.LivrosModule)
+  },
+  {
+    path: 'categorias',
+    loadChildren: () =>
+      import('./categorias/categorias.module').then((m) => m.CategoriasModule)
   },
   {
     path: 'buscar',
-    loadChildren: () => import('./buscar/buscar.module').then(m => m.BuscarModule)
+    loadChildren: () =>
+      import('./buscar/buscar.module').then((m) => m.BuscarModule)
   }
 ];
 
@@ -26,4 +32,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

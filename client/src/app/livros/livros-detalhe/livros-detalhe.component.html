@@ -36,7 +36,7 @@
         <h5>Categorias:</h5>
         <span
           *ngFor="let categoria of livro.categorias"
-          (click)="(categoria.id)"
+          (click)="irParaCategoria(categoria.id)"
           >{{ categoria.nome }}</span
         >
       </div>
