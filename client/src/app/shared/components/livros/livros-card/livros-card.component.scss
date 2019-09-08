@@ -1,0 +1,104 @@
+.livro {
+  & {
+    min-height: 500px;
+  }
+  &:hover .livro-capa-hover:before {
+    width: 100%;
+    height: 100%;
+    background: hsla(0, 0%, 100%, 0.7);
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+  &:hover .livro-capa-acoes {
+    display: flex !important;
+  }
+  .livro-capa {
+    & {
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      vertical-align: top;
+      margin-bottom: 20px;
+      box-shadow: 0 0 12px 0 rgba(43, 43, 43, 0.3);
+    }
+    .livro-capa-hover {
+      & {
+        position: relative;
+        display: block;
+      }
+      img {
+        opacity: 1;
+        visibility: visible;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        max-width: 100%;
+        height: auto;
+      }
+    }
+    .livro-capa-acoes {
+      & {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        bottom: 50%;
+        right: calc(50% - 20px);
+        z-index: 9;
+      }
+      a {
+        & {
+          color: #fff;
+          display: table-cell;
+          text-align: center;
+          background: #fff;
+          font-size: 0;
+          white-space: nowrap;
+          -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+          border-radius: 50%;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          -ms-border-radius: 50%;
+          -o-border-radius: 50%;
+          border: 1px solid #f86d72;
+          margin: 5px 0;
+          padding: 15px;
+        }
+        i {
+          font-size: 18px;
+          color: #f86d72;
+          margin: 0;
+        }
+        &:hover {
+          background: #f86d72;
+        }
+        &:hover i {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .livro-titulo {
+    font-size: 24px;
+    margin-top: 0;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: Merriweather, serif;
+    text-transform: capitalize;
+  }
+  .livro-autor {
+    padding: 0;
+    margin-bottom: 15px;
+    color: #909090;
+    font-style: italic;
+    font-family: Merriweather, serif;
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,20 @@
+<div class="livro" >
+  <div class="livro-capa">
+    <div class="livro-capa-hover">
+      <a><img width="720" height="1040" src="{{livro.capa}}" alt=""></a>
+    </div>
+    <div class="livro-capa-acoes">
+      <a (click)="editar(livro.id)" class="button">
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+      <a (click)="visualizar(livro.id)" class="button">
+        <i class="fa fa-eye" aria-hidden="true"></i></a>
+    </div>
+  </div>
+
+  <div class="livro-titulo">
+    {{ livro.titulo }}
+  </div>
+  <div class="livro-autor">
+    {{ livro.autor }}
+  </div>
+</div>
